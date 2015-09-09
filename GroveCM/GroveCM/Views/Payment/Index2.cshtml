@@ -1,0 +1,65 @@
+﻿@model GroveCM.Models.Order
+
+
+<h4>Buy Super-Widget</h4>
+<p>Please fill in the form below and then click on the Buy button.  You will be taken to the PayPal site where you can pay</p>
+
+<img src="~/Content/Images/superwidget.jpg" />
+
+@using (Html.BeginForm("Purchase", "Payment"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrderNumber, htmlAttributes: new { @class = "display-label col-sm-3" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.OrderNumber, new { htmlAttributes = new { @class = "display-field" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaymentReference, htmlAttributes: new { @class = "display-label col-sm-3" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.PaymentReference, new { htmlAttributes = new { @class = "display-field" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubTotal, htmlAttributes: new { @class = "display-label col-sm-3" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.SubTotal, new { htmlAttributes = new { @class = "display-field" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Shipping, htmlAttributes: new { @class = "display-label col-sm-3" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Shipping, new { htmlAttributes = new { @class = "display-field" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tax, htmlAttributes: new { @class = "display-label col-sm-3" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Tax, new { htmlAttributes = new { @class = "display-field" } })
+            </div>
+        </div>
+
+        <div class="col-sm-3"></div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <input type="submit" value="Buy" class="btn btn-default" />
+            </div>
+        </div>    
+    </div>
+}
+
+        @*<div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button class="btn btn-info"
+                        data-ng-click="app.submitForm()">
+                    <i class="glyphicon glyphicon-humbs-up"></i>Buy
+                </button>
+            </div>*@
+
